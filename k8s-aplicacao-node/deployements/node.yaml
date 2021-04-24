@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: node
+  name: node
+  namespace: vote
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: node
+  template:
+    metadata:
+      labels:
+        app: node
+    spec:
+      containers:
+        - image: leandromatpereira/node-api-produtos:v1
+          name: node
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "250m"
+          env:
+            - name: MONGODB_URI
+              value: mongodb://mongouser:mongopwd@mongo:27017/admin
+          ports:
+            - containerPort: 8080
+              name: node
