@@ -1,4 +1,4 @@
-## Como rodar o projeto?
+## Como rodar esse projeto?
 
 ```
 git clone https://github.com/leandro-matos/Product-Node-API
